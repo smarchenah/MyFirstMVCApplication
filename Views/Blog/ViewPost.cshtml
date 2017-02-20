@@ -1,0 +1,32 @@
+﻿@model MyFirstMVCApplication.Models.Post
+
+@{
+    ViewBag.Title = "ViewPost";
+}
+
+<h2>@Model.Title</h2>
+<div class="post-body">
+    @Model.Text
+</div>
+<p>
+    Posted by @Model.Author on @Model.Date.ToLongDateString()
+</p>
+@if (Model.Comments.Any())
+{
+    <h4>Comments</h4>
+    <ul>
+
+        @foreach (var comment in Model.Comments)
+        {
+            <li>
+
+                <div>@comment.Text</div>
+                <div>
+                    @comment.Author
+                @comment.Date.ToShortDateString()
+            </div>
+        </li>
+        }
+    </ul>
+}
+

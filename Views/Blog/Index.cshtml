@@ -1,0 +1,21 @@
+﻿@model IEnumerable<MyFirstMVCApplication.Models.Post>
+
+@{
+    ViewBag.Title = "Latest posts";
+}
+
+<h2>Latest posts</h2>
+
+<ul>
+    @foreach (var post in Model)
+    {
+        <li>
+            <h3><a href="/blog/@post.Code">@post.Title</a></h3>
+            <!--<h3>@Html.ActionLink("Read post...", "ViewPost", new { code = post.Code })</h3>-->
+            <div>
+                Posted by @post.Author on @post.Date.ToLongDateString()
+            </div>
+        </li>
+    }
+</ul>
+
